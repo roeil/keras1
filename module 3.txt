@@ -1,0 +1,39 @@
+#regression models with keras
+
+
+import keras
+
+import pandas
+
+pandas dataframe (concrete_data)
+
+from keras.models import Sequential
+from keras.layers import Dense
+
+model=Sequential()
+
+n_cols=concerete_data.shape[1]
+
+model.add(Dense(5, activation='relu',input_shape=(n_cols,)))
+model.add(Dense(5,activation='relu'))
+model.add(Dense(1))
+
+model.compile(optimizer='adam',loss='mean_squared_error) #with adam no need to specify learning rate
+model.fit(predictors, target)
+
+predictions=model.predict(test_data)
+
+
+#classification models
+pandas dataframe (car_data)
+
+#encode to binary format the target (='decision' column):
+
+n_cols=car_data.shape[1]
+target = to_categorical(car_data['decision'])
+model.add(Dense(5, activation='relu',input_shape=(n_cols,)))
+model.add(Dense(5,activation='relu'))
+model.add(Dense(4,activation='softmax'))
+model.compile(optimizer='adam',loss='categorical_crossentropy',metrics=['accuracy'])
+model.fit(predictors,target,epochs=10)
+model.predict(test.data)
